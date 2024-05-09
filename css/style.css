@@ -1,0 +1,565 @@
+#audioPlayer::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  -webkit-appearance: none;
+}
+
+#audioPlayer::-webkit-media-controls-play-button {
+  display: none !important;
+  -webkit-appearance: none;
+}
+
+  /* Căn giữa nút phát nhạc */
+  #playButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #ff0000;
+    color: #ffffff;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  /* Tùy chỉnh kích thước và vị trí của phần tử audio */
+  #audioContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  #audioContainer audio {
+    width: 100%;
+    height: auto;
+  }
+
+  @-webkit-keyframes snowflakes-fall {
+    0% {
+      top: -10%
+    }
+
+    100% {
+      top: 100%
+    }
+  }
+
+  @-webkit-keyframes snowflakes-shake {
+
+    0%,
+    100% {
+      -webkit-transform: translateX(0);
+      transform: translateX(0)
+    }
+
+    50% {
+      -webkit-transform: translateX(80px);
+      transform: translateX(80px)
+    }
+  }
+
+  @keyframes snowflakes-fall {
+    0% {
+      top: -10%
+    }
+
+    100% {
+      top: 100%
+    }
+  }
+
+  @keyframes snowflakes-shake {
+
+    0%,
+    100% {
+      transform: translateX(0)
+    }
+
+    50% {
+      transform: translateX(80px)
+    }
+  }
+
+  .snowflake {
+    color: #fff;
+    font-size: 1em;
+    font-family: Arial, sans-serif;
+    text-shadow: 0 0 5px #000;
+    position: fixed;
+    top: -10%;
+    z-index: 9999;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default;
+    -webkit-animation-name: snowflakes-fall, snowflakes-shake;
+    -webkit-animation-duration: 10s, 3s;
+    -webkit-animation-timing-function: linear, ease-in-out;
+    -webkit-animation-iteration-count: infinite, infinite;
+    -webkit-animation-play-state: running, running;
+    animation-name: snowflakes-fall, snowflakes-shake;
+    animation-duration: 10s, 3s;
+    animation-timing-function: linear, ease-in-out;
+    animation-iteration-count: infinite, infinite;
+    animation-play-state: running, running;
+  }
+
+  .snowflake:nth-of-type(0) {
+    left: 1%;
+    -webkit-animation-delay: 0s, 0s;
+    animation-delay: 0s, 0s
+  }
+
+  .snowflake:nth-of-type(1) {
+    left: 10%;
+    -webkit-animation-delay: 1s, 1s;
+    animation-delay: 1s, 1s
+  }
+
+  .snowflake:nth-of-type(2) {
+    left: 20%;
+    -webkit-animation-delay: 6s, .5s;
+    animation-delay: 6s, .5s
+  }
+
+  .snowflake:nth-of-type(3) {
+    left: 30%;
+    -webkit-animation-delay: 4s, 2s;
+    animation-delay: 4s, 2s
+  }
+
+  .snowflake:nth-of-type(4) {
+    left: 40%;
+    -webkit-animation-delay: 2s, 2s;
+    animation-delay: 2s, 2s
+  }
+
+  .snowflake:nth-of-type(5) {
+    left: 50%;
+    -webkit-animation-delay: 8s, 3s;
+    animation-delay: 8s, 3s
+  }
+
+  .snowflake:nth-of-type(6) {
+    left: 60%;
+    -webkit-animation-delay: 6s, 2s;
+    animation-delay: 6s, 2s
+  }
+
+  .snowflake:nth-of-type(7) {
+    left: 70%;
+    -webkit-animation-delay: 2.5s, 1s;
+    animation-delay: 2.5s, 1s
+  }
+
+  .snowflake:nth-of-type(8) {
+    left: 80%;
+    -webkit-animation-delay: 1s, 0s;
+    animation-delay: 1s, 0s
+  }
+
+  .snowflake:nth-of-type(9) {
+    left: 90%;
+    -webkit-animation-delay: 3s, 1.5s;
+    animation-delay: 3s, 1.5s
+  }
+
+  .snowflake:nth-of-type(10) {
+    left: 25%;
+    -webkit-animation-delay: 2s, 0s;
+    animation-delay: 2s, 0s
+  }
+
+  .snowflake:nth-of-type(11) {
+    left: 65%;
+    -webkit-animation-delay: 4s, 2.5s;
+    animation-delay: 4s, 2.5s
+  }
+
+  #specialButton {
+    width: 500px; /* Điều chỉnh kích thước nút theo mong muốn */
+    height: 50px; /* Điều chỉnh kích thước nút theo mong muốn */
+    background-color: red; /* Màu nền đỏ */
+    color: gold; /* Màu chữ vàng */
+    font-family: "Pacifico", sans-serif; /* Thay đổi font chữ ở đây */
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Thêm hiệu ứng hover */
+  }
+
+  #specialButton:hover {
+    background-color: darkred; /* Màu nền đỏ tối khi di chuột qua */
+  }
+  .tooltip {
+    display: none;
+    position: absolute;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    padding: 10px;
+    z-index: 1000;
+    width: 300px; /* Tăng kích thước cho phù hợp */
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+
+.tooltip img {
+    float: left;
+    margin-right: 10px;
+    width: 90px; /* Cỡ hình ảnh */
+    height: 90px; /* Cỡ hình ảnh */
+}
+
+.info-link:hover .tooltip {
+    display: block;
+}
+.music-box {
+  position: fixed;
+  width: 300px;
+  height: 160px;
+  z-index: 120;
+  bottom: 30px;
+  left: 30px
+}
+
+.music-box a {
+  color: #fff
+}
+
+@media (max-width: 991px) {
+  .music-box {
+    width: 250px;
+    height: 120px;
+    left: auto;
+    left: 30px
+  }
+}
+
+.music-box .music-holder {
+  width: 100%;
+  height: 100%;
+  border: 2px solid #eee;
+  position: absolute;
+  left: 0;
+  top: -30px;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all .5s ease-out;
+  -o-transition: all .5s ease-out;
+  transition: all .5s ease-out
+}
+
+.music-box .music-holder iframe {
+  width: 100%;
+  height: 100%
+}
+
+.music-box button {
+  background: rgba(0, 0, 0, 0.1);
+  width: 40px;
+  height: 40px;
+  line-height: 0;
+  font-size: 18px;
+  font-size: 1rem;
+  color: #fff;
+  border: 1px solid #e6e6e6;
+  outline: 0;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -o-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%
+}
+
+@media (max-width: 991px) {
+  .music-box button {
+    left: auto;
+    left: 0
+  }
+}
+
+.music-box .toggle-music-box {
+  top: -50px;
+  visibility: visible;
+  opacity: 1
+}
+
+#audioPlayer {
+  display: none;
+}
+
+/* Style the dropdown button */
+.dropbtn {
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.dropdown-content li {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content li:hover {
+  background-color: #f1f1f1;
+}
+
+/* Style the dropdown button */
+.dropbtn {
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Hiệu ứng khi hover */
+}
+
+.dropbtn:hover {
+  background-color: #bd77a6; /* Thay đổi màu khi hover */
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (initially hidden) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.5s ease; /* Hiệu ứng opacity */
+}
+
+/* Links inside the dropdown */
+.dropdown-content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.dropdown-content li {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content li:hover {
+  background-color: #f1f1f1;
+}
+
+/* Display dropdown content on toggle */
+.dropdown-content.show {
+  display: block;
+  opacity: 1;
+}
+
+/* Style for dropdown button */
+.dropbtn {
+  background-color: #efefef;
+  color: rgb(0, 0, 0);
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Container for the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 200px;
+  box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown content on click */
+.dropdown-content.show {
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .dropdown .dropbtn {
+      width: 100%;
+      padding: 12px;
+  }
+  .dropdown-content a {
+      padding: 10px;
+  }
+}
+
+.dropdown-content a.playing {
+  color: red; /* Đánh dấu màu cho bài hát đang phát */
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 8px 16px;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  max-height: 200px; /* Giới hạn chiều cao tối đa của dropdown */
+  overflow-y: auto; /* Cho phép cuộn dọc nếu nội dung vượt quá chiều cao */
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Pop up */
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Không hiển thị thanh cuộn */
+  background-color: rgba(0,0,0,0.4);
+  border-radius: 10px; /* Làm tròn các góc */
+}
+
+.modal-content {
+  background-color: #ffcef1;
+  margin: auto; /* Đặt modal ở giữa màn hình */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 30%; /* Chiều rộng của modal là 50% của màn hình */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  animation: fadeInScaleUp 1s ease-out forwards;
+  position: absolute;
+  top: 50%; /* Nửa chiều cao của màn hình */
+  left: 50%; /* Nửa chiều rộng của màn hình */
+  transform: translate(-50%, -50%); /* Dịch chuyển modal về vị trí chính giữa */
+  overflow: hidden; /* Tránh hiển thị thanh cuộn trong nội dung */
+  border-radius: 50px;
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+.close:hover {
+  transform: rotate(90deg); /* Xoay nút khi di chuột qua */
+}
+
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@keyframes fadeInScaleUp {
+  0% {
+    transform: scale(0.3); /* Bắt đầu từ kích thước nhỏ hơn */
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.modal-content p {
+  text-align: center; /* Căn giữa nội dung */
+  margin: 10px 0; /* Thêm khoảng cách giữa các phần tử */
+  font-weight: inherit;
+  font-size: 18px;
+  font-style: oblique;
+}
+
+.modal-content h2 {
+  text-align: center;
+  margin: 0 0 20px; /* Cập nhật khoảng cách */
+  color: #ff0000; /* Màu sắc cho tiêu đề */
+  font-size: 24px; /* Kích thước font cho tiêu đề */
+  font-weight: 900;
+  font-family: Tahoma;
+}
